@@ -34,6 +34,12 @@ namespace SharedRecognizer
             Choices azureCostManagementChoices = new Choices(new string[] { "costmanagement" });
             Choices azureCostManagementExportChoices = new Choices(new string[] { "export" });
 
+            // windows powershell commands
+            Choices powershellCommands = new Choices(new string[] { "c d" });
+
+            // ubuntu linux bash commands
+            Choices ubuntuCommands = new Choices(new string[] { "c d" });
+
             GrammarBuilder azureGroupGrammar = new GrammarBuilder(azureGroupChoices);
             azureGroupGrammar.Append(azureSubgroupsChoices);
             GrammarBuilder azureCostManagementGrammarBuilder = new GrammarBuilder(azureCostManagementChoices);
@@ -54,14 +60,22 @@ namespace SharedRecognizer
         {
             if (e.Result != null)
             {
-                var str = e.Result.Text.ToLower();
+                var command = e.Result.Text;
 
-                if (e.Result.Text.Contains("a z"))
+                switch(command)
                 {
-                    str = str.Replace("a z", "az");
+                    case "a z":
+                        command = command.Replace("a z", "az");
+                        break;
+                    case "c d":
+                        command = command.Replace("c d", "cd");
+                        command = command.Replace("C D", "CD");
+                        break;
+                    default:
+                        break;
                 }
 
-                Console.WriteLine("{0}", str ?? "<no text>");
+                Console.WriteLine("{0}", command ?? "<no text>");
 
                 if (e.Result.Text == "Quit")
                 {
