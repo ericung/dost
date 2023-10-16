@@ -12,9 +12,9 @@ namespace SharedRecognizer
         {
             using (SpeechRecognizer recognizer = new SpeechRecognizer())
             {
-                Grammar testGrammar = CreateColorGrammar();
-                testGrammar.Name = "Test Grammar";
-                recognizer.LoadGrammar(testGrammar);
+                Grammar azGrammar = CreateAzGrammar();
+                azGrammar.Name = "AZ Grammar";
+                recognizer.LoadGrammar(azGrammar);
 
                 recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(SpeechRecognizedHandler);
 
@@ -23,7 +23,7 @@ namespace SharedRecognizer
             }
         }
 
-        public static Grammar CreateColorGrammar()
+        public static Grammar CreateAzGrammar()
         {
             // az devops
             Choices azureGroupChoices = new Choices(new string[] { "devops", "pipelines", "boards", "repos", "artificacts" });
@@ -54,11 +54,11 @@ namespace SharedRecognizer
         {
             if (e.Result != null)
             {
-                var str = e.Result.Text;
+                var str = e.Result.Text.ToLower();
 
                 if (e.Result.Text.Contains("a z"))
                 {
-                    str = e.Result.Text.Replace("a z", "az");
+                    str = str.Replace("a z", "az");
                 }
 
                 Console.WriteLine("{0}", str ?? "<no text>");
