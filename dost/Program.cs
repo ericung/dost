@@ -50,8 +50,14 @@ namespace SharedRecognizer
         {
             if (e.Result != null)
             {
-                if ()
-                Console.WriteLine("Recognition result = {0}", e.Result.Text ?? "<no text>");
+                var str = e.Result.Text;
+
+                if (e.Result.Text.Contains("a z"))
+                {
+                    str = e.Result.Text.Replace("a z", "az");
+                }
+
+                Console.WriteLine("Recognition result = {0}", str ?? "<no text>");
 
                 if (e.Result.Text == "Quit")
                 {
