@@ -10,3 +10,7 @@ Ex. az costmanagement export <...> = az costmanagement export <...>\
 The challenging part is putting specifics in such as API keys and passwords.\
 This is an interesting problem that can have many variations in solutions.\
 Another challenge would be separating out windows and linux commands.
+
+## Design of Commands
+### Mapping CLI commands to custom user friendly commands
+~[CLI To Custom Commands](Resources/systemdesign01.png)
