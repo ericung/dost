@@ -12,7 +12,7 @@ Another challenge would be separating out windows and linux commands.
 
 ## Design of Commands
 ### Mapping CLI commands to custom user friendly commands
-~[CLI To Custom Commands](Resources\systemdesign01.png)
+![CLI To Custom Commands](Resources/systemdesigndiagram01.png)
 
 -----
 
