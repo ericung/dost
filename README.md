@@ -10,12 +10,10 @@ The challenging part is putting specifics in such as API keys and passwords.\
 This is an interesting problem that can have many variations in solutions.\
 Another challenge would be separating out windows and linux commands.
 
-<<<<<<< HEAD
 ## Design of Commands
 ### Mapping CLI commands to custom user friendly commands
-~[CLI To Custom Commands](Resources/systemdesign01.png)
-=======
+~[CLI To Custom Commands](Resources\systemdesign01.png)
+
 -----
 
 if thou dost love me, for love is free
->>>>>>> 122376d01b63e2947ca397be1d336e2b70e0ec10
